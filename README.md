@@ -13,3 +13,6 @@ sudo ./install.sh
 
 [uninstall]
 sudo ./install.sh
+
+Additional info:
+Sign the extension yourself.
