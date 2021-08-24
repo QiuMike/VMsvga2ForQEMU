@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -490,7 +490,7 @@
 			attributes = {
 			};
 			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "VMsvga2" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -640,6 +640,8 @@
 					VECTORIZE,
 				);
 				INFOPLIST_FILE = "Info-AC.plist";
+				"INFOPLIST_FILE[sdk=macosx10.15]" = "Info-AC.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MODULE_NAME = net.osx86.driver.VMsvga2Accel;
 				PRODUCT_NAME = VMsvga2Accel;
 				STRIP_STYLE = "non-global";
@@ -706,6 +708,8 @@
 					VECTORIZE,
 				);
 				INFOPLIST_FILE = "Info-AC.plist";
+				"INFOPLIST_FILE[sdk=macosx10.15]" = "Info-AC.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MODULE_NAME = net.osx86.driver.VMsvga2Accel;
 				PRODUCT_NAME = VMsvga2Accel;
 				STRIP_STYLE = "non-global";
