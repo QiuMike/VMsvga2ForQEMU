@@ -319,6 +319,7 @@ bool CLASS::FIFOInit()
 
 	LogPrintf(2, "%s: FIFO: min=%u, size=%u\n", __FUNCTION__,
 			  static_cast<unsigned>(SVGA_FIFO_NUM_REGS * sizeof(uint32_t)), m_fifo_size);
+#if 0
 	/*
 	 * Moved to Start() in VMwareGfx 5.x
 	 */
@@ -326,6 +327,7 @@ bool CLASS::FIFOInit()
 		LogPrintf(1, "%s: SVGA_CAP_EXTENDED_FIFO failed\n", __FUNCTION__);
 		return false;
 	}
+#endif
 	m_fifo_ptr[SVGA_FIFO_MIN] = static_cast<uint32_t>(SVGA_FIFO_NUM_REGS * sizeof(uint32_t));
 	m_fifo_ptr[SVGA_FIFO_MAX] = m_fifo_size;
 	m_fifo_ptr[SVGA_FIFO_NEXT_CMD] = m_fifo_ptr[SVGA_FIFO_MIN];
@@ -333,6 +335,7 @@ bool CLASS::FIFOInit()
 	WriteReg(SVGA_REG_CONFIG_DONE, 1);
 	fifo_capabilities = m_fifo_ptr[SVGA_FIFO_CAPABILITIES];
 	m_provider->setProperty("VMwareSVGAFIFOCapabilities", static_cast<uint64_t>(fifo_capabilities), 32U);
+#if 0
 	if (!(fifo_capabilities & SVGA_FIFO_CAP_CURSOR_BYPASS_3)) {
 		LogPrintf(1, "%s: SVGA_FIFO_CAP_CUSSOR_BYPASS_3 failed\n", __FUNCTION__);
 		return false;
@@ -341,6 +344,7 @@ bool CLASS::FIFOInit()
 		LogPrintf(1, "%s: SVGA_FIFO_CAP_RESERVE failed\n", __FUNCTION__);
 		return false;
 	}
+#endif
 	m_reserved_size = 0;
 	m_using_bounce_buffer = false;
 	return true;
