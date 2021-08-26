@@ -1003,7 +1003,7 @@ bool CLASS::start(IOService* provider)
 	 * Begin Added
 	 */
 	setProperty("VMwareSVGAFBLogLevel", static_cast<uint64_t>(logLevelFB), 32U);
-	vmw_options_fb = VMW_OPTION_FB_FIFO_INIT | VMW_OPTION_FB_REFRESH_TIMER | VMW_OPTION_FB_ACCEL;
+	vmw_options_fb = VMW_OPTION_FB_FIFO_INIT | VMW_OPTION_FB_REFRESH_TIMER | VMW_OPTION_FB_ACCEL | VMW_OPTION_FB_CURSOR_BYPASS_2;
 	if (PE_parse_boot_argn("vmw_options_fb", &boot_arg, sizeof boot_arg))
 		vmw_options_fb = boot_arg;
 	setProperty("VMwareSVGAFBOptions", static_cast<uint64_t>(vmw_options_fb), 32U);

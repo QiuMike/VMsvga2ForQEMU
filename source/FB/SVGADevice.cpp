@@ -182,9 +182,9 @@ bool CLASS::Start(IOPCIDevice* provider)
 		return false;
 	}
 	m_io_base = static_cast<uint16_t>(bar->getPhysicalAddress());
-#if 0	/* VMwareGfx 5.x */
+//#if 0	/* VMwareGfx 5.x */
 	WriteReg(SVGA_REG_ENABLE, 0U);
-#endif
+//#endif
 	WriteReg(SVGA_REG_ID, SVGA_ID_2);
 	reg_id = ReadReg(SVGA_REG_ID);
 	LogPrintf(3, "%s: REG_ID=%#08x\n", __FUNCTION__, reg_id);
@@ -193,10 +193,10 @@ bool CLASS::Start(IOPCIDevice* provider)
 		Cleanup();
 		return false;
 	}
-#if 0	/* VMwareGfx 5.x */
+//#if 0	/* VMwareGfx 5.x */
 	WriteReg(SVGA_REG_CONFIG_DONE, 0U);
 	WriteReg(SVGA_REG_ENABLE, 1U);
-#endif
+//#endif
 	m_capabilities = ReadReg(SVGA_REG_CAPABILITIES);
 	LogPrintf(3, "%s: caps=%#08x\n", __FUNCTION__, m_capabilities);
 #ifdef REQUIRE_TRACING
