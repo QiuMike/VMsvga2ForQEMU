@@ -120,7 +120,7 @@ private:
 public:
 	UInt64 getPixelFormatsForDisplayMode(IODisplayModeID displayMode, IOIndex depth);
 	IOReturn setCursorState(SInt32 x, SInt32 y, bool visible);
-	IOReturn setCursorImage(void* cursorImage);
+	//IOReturn setCursorImage(void* cursorImage);
 	IOReturn setInterruptState(void* interruptRef, UInt32 state);
 	IOReturn unregisterInterrupt(void* interruptRef);
 	IOItemCount getConnectionCount();
