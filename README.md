@@ -35,40 +35,46 @@ If do not have sign Certs,
 you need tell kernel to load non-certs modules.
 
 Step 1: Found out the EFI partion, my case is disk1s1
-% diskutil list
-/dev/disk0 (internal):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                         402.7 MB   disk0
-   1:                        EFI EFI                     152.6 MB   disk0s1
-   2:           Linux Filesystem                         247.0 MB   disk0s2
 
-/dev/disk1 (internal):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                         68.7 GB    disk1
-   1:                        EFI EFI                     209.7 MB   disk1s1
-   2:                 Apple_APFS Container disk2         68.4 GB    disk1s2
+  % diskutil list
 
-/dev/disk2 (synthesized):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      APFS Container Scheme -                      +68.4 GB    disk2
+  /dev/disk0 (internal):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:      GUID_partition_scheme                         402.7 MB   disk0
+     1:                        EFI EFI                     152.6 MB   disk0s1
+     2:           Linux Filesystem                         247.0 MB   disk0s2
+
+  /dev/disk1 (internal):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:      GUID_partition_scheme                         68.7 GB    disk1
+     1:                        EFI EFI                     209.7 MB   disk1s1
+     2:                 Apple_APFS Container disk2         68.4 GB    disk1s2
+
+  /dev/disk2 (synthesized):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:      APFS Container Scheme -                      +68.4 GB    disk2
                                  Physical Store disk1s2
-   1:                APFS Volume macOS - Data            39.6 GB    disk2s1
-   2:                APFS Volume Preboot                 83.9 MB    disk2s2
-   3:                APFS Volume Recovery                529.0 MB   disk2s3
-   4:                APFS Volume VM                      1.1 GB     disk2s4
-   5:                APFS Volume macOS                   11.2 GB    disk2s5
+     1:                APFS Volume macOS - Data            39.6 GB    disk2s1
+     2:                APFS Volume Preboot                 83.9 MB    disk2s2
+     3:                APFS Volume Recovery                529.0 MB   disk2s3
+     4:                APFS Volume VM                      1.1 GB     disk2s4
+     5:                APFS Volume macOS                   11.2 GB    disk2s5
 
-/dev/disk3 (internal, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:                                                   *9922901320141763330 B  disk3
+  /dev/disk3 (internal, physical):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:                                                   *9922901320141763330 B  disk3
+
 
 Step 2: make dir in /Volumes/ folder
+
 % sudo mkdir /Volumes/EFI
 
 Step 3: mount the EFI partition
+
 % sudo mount -t msdos /dev/disk1s1 /Volumes/EFI
 
 Step 4: add params to config.plist, kext-dev-mode=1 to make non-signed kexts loadable
+
 % vim /Volumes/EFI/EFI/OC/config.plist
 
                         <dict>
