@@ -1,2 +1,2 @@
 !#/bin/bash
-sudo rm VMsvga* /System/Library/Extension
+sudo rm -rf /Library/Extensions/VMsvga*
