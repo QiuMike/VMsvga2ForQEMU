@@ -98,3 +98,5 @@ Step 5: save the config.plist, and reboot your OSX
 
 
 Another way could be put the kext to EFI/OC/Kexts, and modify the config.plist, I have not tested yet.
+
+if you wanna to have qemu native support version pls contact me via qdy220091330@gmail.com
